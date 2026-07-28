@@ -1,4 +1,4 @@
-const API_KEY = "AIzaSyAfA4lVgqru3ef1Ytj9QD3000qZ7ojTnrk"; // Timro Gemini Key
+const API_KEY = "AIzaSyAfA4lVgqru3ef1Ytj9QD3000qZ7ojTnrk";
 
 document.getElementById('signalBtn').addEventListener('click', getSignal);
 
@@ -10,32 +10,17 @@ async function getSignal() {
   loading.style.display = 'block';
   resultBox.innerHTML = '';
 
-  // Demo H4 data. Pachi yaha real candle data jodamla
   const h4Candles = `Pair: ${pair}. Last 20 H4 Candles: Uptrend, RSI 62, Price 1.0865, Near Resistance 1.0870`;
   
-  const prompt = `You are a professional Forex H4 trader with 15 years experience.
-  Data: ${h4Candles}
-  
-  Analyze using RSI, MACD, Support, Resistance, Trend on H4 timeframe.
-  Reply ONLY in valid JSON format, no extra text, no markdown:
-  {
-    "signal": "BUY",
-    "entry": "1.0860",
-    "tp": "1.0920", 
-    "sl": "1.0810",
-    "confidence": "85%",
-    "reason": "Price broke resistance with bullish candle on H4"
-  }`;
+  const prompt = `You are a professional Forex H4 trader. Data: ${h4Candles}. Analyze RSI, MACD, Support, Resistance. Reply ONLY in valid JSON: {"signal":"BUY","entry":"1.0860","tp":"1.0920","sl":"1.0810","confidence":"85%","reason":"Reason here"}`;
 
   try {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`, {
+    const res = await fetch(`https://corsproxy.io/?https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: {
-          responseMimeType: "application/json" // JSON fix garna
-        }
+        generationConfig: { responseMimeType: "application/json" }
       })
     });
     
@@ -55,7 +40,7 @@ async function getSignal() {
     
   } catch(e) {
     loading.style.display = 'none';
-    resultBox.innerHTML = "Error: API fail bhayo. Key check gara. " + e;
+    resultBox.innerHTML = "Error: " + e.message + ". 10 sec pachi feri try gara";
     console.log(e);
   }
-          }
+}
