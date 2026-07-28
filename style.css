@@ -1,0 +1,12 @@
+body { font-family: Arial; background: #0A0F1E; color: #E0E0E0; padding: 20px; }
+.container { max-width: 500px; margin: auto; background: #121826; padding: 20px; border-radius: 15px; }
+h1 { color: #4FC3F7; text-align: center; }
+.input-box { display: flex; gap: 10px; margin: 20px 0; }
+select, button { padding: 12px; border-radius: 8px; border: none; font-size: 16px; }
+select { flex: 1; background: #1E293B; color: white; }
+button { background: #4FC3F7; color: #0A0F1E; font-weight: bold; cursor: pointer; }
+#resultBox { margin-top: 20px; padding: 15px; background: #1E293B; border-radius: 10px; }
+.signal { font-size: 24px; font-weight: bold; text-align: center; padding: 10px; border-radius: 8px; }
+.BUY { background: #10B981; color: white; }
+.SELL { background: #EF4444; color: white; }
+.HOLD { background: #F59E0B; color: white; }
