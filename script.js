@@ -1,5 +1,5 @@
 const TWELVE_API_KEY = "f9b05a002b0648ce85dbbd0fb34e017e"; // yo thik cha
-const GROQ_API_KEY = "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"; // NAYA KEY HALA
+const GROQ_API_KEY = "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"; 
 
 document.getElementById('scanBtn').onclick = runScan;
 
