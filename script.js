@@ -1,5 +1,5 @@
 const TWELVE_API_KEY = "f9b05a002b0648ce85dbbd0fb34e017e";
-const GROQ_API_KEY = "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";
+const GROQ_API_KEY = "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";
 
 document.getElementById('scanBtn').onclick = runScan;
 
